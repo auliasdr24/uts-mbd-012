@@ -1,0 +1,42 @@
+services:
+  postgres:
+    container_name: postgres_aulia
+    image: postgres:15
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=mbd_uts_012
+    ports:
+      - "22012:5432"
+    volumes:
+      - pgdata_012:/var/lib/postgresql/data
+    networks:
+      - jaringan_uts_012
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    container_name: pgadmin_aulia
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=auliasafarinadwirahayu@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=aulia012
+    ports:
+      - "44012:80"
+    networks:
+      - jaringan_uts_012
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata_012:
+
+networks:
+  jaringan_uts_012:
+    driver: bridge
