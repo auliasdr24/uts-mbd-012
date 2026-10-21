@@ -26,6 +26,7 @@ Proyek ini merupakan tugas Ujian Tengah Semester (UTS) mata kuliah **Manajemen B
 .
 ├── docker-compose.yml
 ├── .env.example
+├── .gitignore
 ├── soal3_mahasiswas.sql
 ├── soal4_user_role.sql
 └── README.md
@@ -35,6 +36,7 @@ Proyek ini merupakan tugas Ujian Tengah Semester (UTS) mata kuliah **Manajemen B
 |---|---|
 | `docker-compose.yml` | Konfigurasi service PostgreSQL dan pgAdmin 4 menggunakan Docker Compose. |
 | `.env.example` | Contoh konfigurasi environment yang perlu disalin menjadi `.env`. |
+| `.gitignore` | Daftar file yang dikecualikan dari repository, mencegah .env berisi kredensial asli ikut terunggah. |
 | `soal3_mahasiswas.sql` | Pembuatan skema `SALAM`, tabel `mahasiswas`, data, dan pengujian constraint. |
 | `soal4_user_role.sql` | Pembuatan user database dan pengaturan hak akses menggunakan `GRANT`. |
 | `README.md` | Dokumentasi proyek dan panduan menjalankan aplikasi. |
